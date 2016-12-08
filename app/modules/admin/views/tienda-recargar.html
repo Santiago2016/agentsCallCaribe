@@ -1,0 +1,116 @@
+<div class="bs-example1" data-example-id="contextual-table">
+    <div class="row">
+        <div class="col-xs-12" ng-class="{'hide':!error.negativeRecharge}">
+            <div class="alert alert-danger" role="alert">
+                <p>No puede recargar por debajo de 0 un telefono</p>
+            </div>
+        </div>
+        <div class="col-xs-6">
+
+            <form name="recargarform" ng-submit="recargar()" class="form-horizontal" novalidate role="form">
+                <div class="form-group">
+                    <label for="cliente" class="col-md-4">Numero del cliente: </label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">(+1)</span>
+                            <input data-ng-blur="searchClient()" type="number" min="1000000000" max="9999999999" name="cliente" class="form-control1" id="cliente" placeholder="cliente" ng-model="cliente" name="cliente" ng-required="true">
+                            <div class="alert alert-danger" ng-show="recargarform.cliente.$error.minLength || recargarform.cliente.$error.maxLength">
+                                <strong>Error!</strong> El numero de telefono es invalido.
+                            </div>
+                        </div>
+                        
+                        <span class="error-message" ng-show="recargarform.cliente.$dirty && recargarform.cliente.$error.required">
+                            Este campo es obligatori
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="importe" class="col-md-4">Cantidad con que se recargara la cuenta: </label>
+                    <div class="col-md-8">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">$</span>
+                            <input type="number" min="-9999" max="9999" class="form-control1" id="importe" placeholder="importe" ng-model="importe" name="importe" ng-required="true">
+                        </div>
+                        <span class="error-message" ng-show="recargarform.importe.$dirty && recargarform.importe.$error.required">
+                            Este campo es obligatorio</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success" ng-disabled="recargarform.$invalid">Recargar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xs-6" ng-show="clientUpdated">
+            <div class="row" data-ng-hide="clientUpdated.error" style="text-align: center">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <h3>Detalles del cliente</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Nombre
+                        </div>
+                        <div class="col-xs-6">
+                            {{clientUpdated.a2billingClient.firstname}} {{clientUpdated.a2billingClient.lastname}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Telefono
+                        </div>
+                        <div class="col-xs-6">
+                            {{clientUpdated.a2billingClient.phone}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            Saldo Actual
+                        </div>
+                        <div class="col-xs-6">
+                            {{clientUpdated.a2billingClient.credit}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" data-ng-show="clientUpdated.error">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12" ng-class="{'hide':!clientUpdated.phone}">
+                            <div class="alert alert-success" role="alert">
+                                <p>El cliente no existe, será creado automaticamente</p> 
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control1" id="nombre_apellidos" placeholder="Nombre y Apellidos" ng-model="clientUpdated.nombre" name="nombre_apellidos">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control1" id="email" placeholder="email" ng-model="clientUpdated.email" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-class="{'hide':clientUpdated.phone}">
+                        <div class="col-xs-12">
+                            <div class="alert alert-warning" role="alert"> 
+                                <p>El número de telefono indicado tiene un formato incorrecto</p> 
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

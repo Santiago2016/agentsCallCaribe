@@ -1,0 +1,35 @@
+<div class="bs-example1" data-example-id="contextual-table">
+   <!--  <a role="button" class="btn btn-primary" ui-sref="tienda.crearcliente">Agregar</a> -->
+
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-8">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">BUSCAR</span>
+              <input style="border: 1px solid #ccc !important;border-radius: 0 4px 4px 0px !important;" type="text" class="form-control" aria-label="..." ng-model="search">
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Saldo</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cliente in clientes | filter:search">
+            <td>{{cliente.firstname}} {{cliente.lastname}}</td>
+            <td>{{cliente.email}}</td>
+            <td>{{cliente.phone}}</td>
+            <td>{{cliente.credit | currency}}</td>
+            <td>
+                <a ui-sref="tienda.editarcliente({id:cliente.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                <a ng-click="eliminar(cliente.id)" title="Eliminar"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

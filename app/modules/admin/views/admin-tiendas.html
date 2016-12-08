@@ -1,0 +1,48 @@
+<div class="bs-example1" data-example-id="contextual-table">
+    <a role="button" class="btn btn-primary" ui-sref="admin.creartienda">Agregar</a>
+    {{scope.response}}
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Saldo actual</th>
+            <th>Comision</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="tienda in response.tiendas">
+            <td>{{tienda.nombre}}</td>
+            <td>{{tienda.email}}</td>
+            <td>{{tienda.telefono}}</td>
+            <td>{{tienda.cuentas[0].saldo | currency}}</td>
+            <td>{{tienda.cuentas[0].comision}}</td>
+            <td>
+                <a ui-sref="admin.editartienda({id:tienda.id})" title="Editar" style="padding-right: 1em"><i class="fa fa-edit"></i></a>
+                <a  data-toggle="modal" data-target="#removeConfirm" ng-click="setTienda(tienda)" title="Eliminar" style="padding-right: 1em"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" id="removeConfirm" aria-labelledby="confirmationModal">
+  <div class="modal-dialog modal-sm" role="document">
+    
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="gridSystemModalLabel">Borrar Tienda</h4>
+        </div>
+        <div class="modal-body">
+            <p>Esta seguro que desea borrar la tienda {{tiendaActual.nombre}}?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="eliminarTienda(tiendaActual.id)">SI</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal">NO</button>
+        </div>
+    </div>
+  </div>
+</div>

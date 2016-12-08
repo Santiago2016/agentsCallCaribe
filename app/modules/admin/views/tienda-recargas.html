@@ -1,0 +1,22 @@
+<div class="bs-example1" data-example-id="contextual-table">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Teléfono</th>
+            <th>Recargado</th>
+            <th>Saldo Actual</th>
+            <th>Fecha y hora</th>
+        </tr>
+        </thead>
+        <tbody >
+        <tr ng-repeat="recarga in recargas">
+            <td>{{recarga.user}}</td>
+            <td>{{recarga.phone}}</td>
+            <td>{{recarga.recargado | currency}}</td>
+            <td>{{recarga.saldoActual | currency}}</td>
+            <td>{{recarga.fecha}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

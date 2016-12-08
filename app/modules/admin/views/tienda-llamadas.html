@@ -1,0 +1,30 @@
+<div class="bs-example1" data-example-id="contextual-table">
+    <div class="row">
+        <div class="col-xs-4 col-xs-offset-8">
+            <div class="input-group">
+              <span class="input-group-addon" id="sizing-addon1">BUSCAR</span>
+              <input style="border: 1px solid #ccc !important;border-radius: 0 4px 4px 0px !important;" type="text" class="form-control" aria-label="..." ng-model="search">
+            </div>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Cliente</th>
+            <th>Remitente</th>
+            <th>Receptor</th>
+            <th>Tiempo</th>
+            <th>Fecha y Hora</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="llamada in llamadas | filter:search">
+            <td>{{llamada.firstname}} {{llamada.lastname}}</td>
+            <td>{{llamada.from}}</td>
+            <td>{{llamada.calledstation}}</td>
+            <td>{{llamada.sessiontime}}</td>
+            <td>{{llamada.starttime | date : 'medium'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

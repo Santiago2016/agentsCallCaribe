@@ -1,0 +1,51 @@
+<div class="bs-example1" data-example-id="contextual-table">
+    <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+            <form name="creartienda" ng-submit="updateTienda()" class="form-horizontal" novalidate role="form">
+                <div class="col-xs-5">
+                    <p>Personal details below</p>
+                    <div class="form-group">
+                        <input type="text" class="form-control1" placeholder="Nombre(s)" autofocus=""
+                               ng-model="tienda.nombre" ng-required="true" ng-maxlength="50" name="nombre">
+                        <span class="error-message" ng-show="creartienda.nombre.$dirty && creartienda.nombre.$error.required">
+                            Este campo es obligatorio</span>
+                        <span class="error-message" ng-show="creartienda.nombre.$dirty && creartienda.nombre.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control1" placeholder="Email" autofocus="" name="email"
+                               ng-model="tienda.email" ng-minlength="5" ng-maxlength="120">
+                        <span class="error-message" ng-show="creartienda.email.$dirty && creartienda.email.$error.minlength">
+                            Debe introducir un email mas largo</span>
+                        <span class="error-message" ng-show="creartienda.email.$dirty && creartienda.email.$error.maxlength">
+                            Ha sobrepasado el limite de caracteres</span>
+                    </div>
+                </div>
+                <div class="col-xs-2"></div>
+                <div class="col-xs-5">
+                    <p>Account details below</p>
+                    <div class="form-group">
+                        <input type="text" class="form-control1" placeholder="Telefono" autofocus=""
+                               ng-model="tienda.telefono" ng-required="true" name="telefono">
+                        <span class="error-message" ng-show="creartienda.telefono.$dirty && creartienda.telefono.$error.required">
+                            Este campo es obligatorio</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control1" placeholder="UserName" autofocus=""
+                               ng-model="tienda.username" name="username" ng-required="true">
+                        <span class="error-message" ng-show="creartienda.username.$dirty && creartienda.username.$error.required">
+                            Este campo es obligatorio</span>
+                    </div>
+                </div>
+                <div class="col-xs-5"></div>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="creartienda.$invalid">Submit</button>
+                    </div>
+                </div>
+                <div class="col-xs-5"></div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="bs-example1" data-example-id="contextual-table">
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <div ng-show="invalid" class="alert alert-danger">Usuario ya existe</div>
+        <form name="crearcliente" ng-submit="saveCliente()" class="form-horizontal" novalidate role="form">
+            <p>Personal details below</p>
+            <div class="form-group">
+            <input type="text" class="form-control1" placeholder="Telefono" autofocus="" ng-model="cliente.telefono" name="telefono" ng-required="true">
+                <span class="error-message" ng-show="crearcliente.telefono.$dirty && crearcliente.telefono.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+            <div class="form-group">
+            <button class="btn btn-lg btn-success1 btn-block" type="submit" ng-disabled="creartienda.$invalid">Submit</button>
+                </div>
+        </form>
+    </div>
+</div>
+    </div>

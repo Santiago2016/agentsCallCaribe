@@ -1,0 +1,38 @@
+<div class="bs-example1" data-example-id="contextual-table">
+<div class="row">
+    <div class="col-md-12">
+        <form name="recargarform" ng-submit="recargar()" class="form-horizontal" novalidate role="form">
+            <div class="form-group">
+                <label for="selector-tienda" class="col-md-4">Seleccione a quien recargar: </label>
+                <div class="col-md-5"><select name="selector-tienda" id="selector-tienda" class="form-control1" ng-model="tienda1" ng-options="tienda.username as tienda.username for tienda in tiendas">
+                    <option value="">Escoja la tienda</option>
+                </select></div>
+            </div>
+            <!--<div class="form-group">-->
+                <!--<label for="selector-cuenta" class="col-md-4">Seleccione que cuenta recargar: </label>-->
+                <!--<div class="col-md-5"><select name="selector-cuenta" id="selector-cuenta" class="form-control1">-->
+                    <!--<option>Karelia.carcasses</option>-->
+                    <!--<option>victoria02</option>-->
+                    <!--<option>91110247</option>-->
+                    <!--<option>91susy65</option>-->
+                <!--</select></div>-->
+            <!--</div>-->
+
+            <div class="form-group">
+                <label for="importe" class="col-md-4">Cantidad con que se recargara la cuenta: </label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control1" id="importe" placeholder="importe" ng-model="importe" name="importe" ng-required="true">
+                    <span class="error-message" ng-show="recargarform.importe.$dirty && recargarform.importe.$error.required">
+                            Este campo es obligatorio</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" ng-disabled="recargarform.$invalid">Recargar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
